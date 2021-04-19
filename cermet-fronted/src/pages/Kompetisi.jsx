@@ -1,11 +1,12 @@
 import React from 'react';
 // import TimelineContainer from '../components/TimelineContainer'
 import TimelineContainer from '../components/TimelineContainer'
+import '../App.css'
 
 function Kompetisi() {
     return (
-        <div>
-            <h1>Hello from Kompetisi</h1>
+        <div className='list-page'>
+            <h1>Kompetisi</h1>
             <TimelineContainer />
         </div>
     )
