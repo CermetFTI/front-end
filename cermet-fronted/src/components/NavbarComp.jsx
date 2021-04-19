@@ -11,6 +11,7 @@ function NavbarComp() {
             <Nav className="mr-auto">
             <Nav.Link href="./">Home</Nav.Link>
             <Nav.Link href="./kompetisi">Kompetisi</Nav.Link>
+            <Nav.Link href="./admin">Admin</Nav.Link>
             </Nav>
         </Navbar>
         </div>
