@@ -1,18 +1,17 @@
-import React from 'react'
-import { Button } from 'react-bootstrap';
-import axios from 'axios';
+import React, { useContext } from 'react'
+import { Button, Form } from 'react-bootstrap';
+import {login, getData, getUser} from '../controller';
+import { UserContext } from '../UserContext';
 
 const Admin = () => {
+    const{user, setUser} = useContext(UserContext)
     return (
         <div>
-             <Button variant="primary" onClick={()=>{
-                 axios.get('http://localhost:5000/events/17',{
-                     username:'mazaya',
-                     password:'password'
-                 })
-                 .then(x=>alert(x.data.msg))
-                 .catch(e=>alert(e))
-             }}>Test Login API</Button>{' '}
+            <Form>
+                <Button variant="primary" onClick={()=>login(setUser)}>Test Login API</Button>{' '}
+            </Form>
+             <Button variant="primary" onClick={getData}>Test get API</Button>{' '}
+             <Button variant="primary" onClick={async ()=>console.log(user === await getUser())}>Test aja</Button>{' '}
         </div>
     )
 }

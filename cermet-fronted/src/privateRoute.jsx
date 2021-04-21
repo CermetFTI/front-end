@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Redirect, Route} from "react-router-dom";
-import Cookie from 'js-cookie';
+import { UserContext } from './UserContext';
+import {getUser} from './controller'
+
 
 const PrivateRoute = ({component:Component,...rest}) => {
+    const{user, setUser} = useContext(UserContext)
+    const check = async () => (user === await getUser())
     return (
         <Route {...rest}
         render={props => 
-            Cookie.get('connect.sid') ? 
+            check() ? 
                 <Component {...props} />
                 :
                 <Redirect to={{
