@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap';
+import { UserContext } from '../UserContext';
+import { Row, Navbar, Nav, Button } from 'react-bootstrap';
+import {logout} from '../controller';
+import {useHistory} from 'react-router-dom';
 
 function NavbarComp() {
+    const history = useHistory();
+    const {user, setUser} = useContext(UserContext);
     return (
         <div className='navbar-class'>
-        <Navbar bg="primary" variant="dark">
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Navbar bg="light" variant="light">
+            <Navbar.Brand onClick={()=>{history.push('/');}}>Cermet</Navbar.Brand>
             <Nav className="mr-auto">
-            <Nav.Link href="./">Home</Nav.Link>
-            <Nav.Link href="./kompetisi">Kompetisi</Nav.Link>
-            <Nav.Link href="./admin">Admin</Nav.Link>
+            <Nav.Link onClick={()=>{history.push('/');}}>Home</Nav.Link>
+            <Nav.Link onClick={()=>{history.push('/kompetisi');}}>Kompetisi</Nav.Link>
             </Nav>
+            {
+                (user===null)
+                ?
+                <Nav.Link onClick={()=>{history.push('/admin');}}>Admin Login</Nav.Link>
+                :
+                <Row>
+                    <Nav.Link onClick={()=>{history.push('/admin/dashboard');}}>Admin Dashboard</Nav.Link>
+                    <Button onClick={()=>{setUser(null);logout();}}>Logout</Button>
+                </Row>
+            }
         </Navbar>
         </div>
     )
