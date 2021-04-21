@@ -19,13 +19,61 @@ export const login = async (setUser, username, password, history) => {
     }
     return false;
   };
-export const getData = () =>{
-    Axios({
-        method: "GET",
-        withCredentials: true,
-        url: "http://localhost:5000/event",
-      }).then((res) => console.log(res)).catch(e=>console.log(e))
+
+export const postData = async (data) => {
+    try { 
+         const result = await Axios({
+                 method: "POST",
+                 data,    
+                 withCredentials: true,
+                 url: "http://localhost:5000/event",
+                 })
+         return result;
+     } catch(e) {
+         return e;
+     }
+};
+
+export const updateData = async (data,id) => {
+    try { 
+         const result = await Axios({
+                 method: "PUT",
+                 data,    
+                 withCredentials: true,
+                 url: `http://localhost:5000/event/${id}`,
+                 })
+         return result;
+     } catch(e) {
+         return e;
+     }
+};
+
+export const deleteData = async (id) => {
+    try { 
+         const result = await Axios({
+                 method: "DELETE",
+                 withCredentials: true,
+                 url: `http://localhost:5000/event/${id}`,
+                 })
+         return result;
+     } catch(e) {
+         return e;
+     }
+};
+
+export const getData = async () =>{
+    try {
+        const result = await Axios({
+            method: "GET",
+            withCredentials: true,
+            url: "http://localhost:5000/event",
+        })
+        return result
+    } catch(err) {
+        return err
+    }
 }
+
 export const getUser = async () => {
     try{
         const result = await Axios({
