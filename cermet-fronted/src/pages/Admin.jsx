@@ -21,7 +21,10 @@ const Admin = () => {
     }
     return (
         <Container className="m-3">
-            <Card className="p-4">
+            <br/>
+            <Card className="p-4" style={{maxWidth:"700px",margin:"0 auto"}}>
+                <h3 className="d-flex justify-content-md-center">Admin login panel</h3>
+                <br/>
                 <Form onSubmit={logging_in}>
                     <Form.Group>
                         <Form.Label>Username</Form.Label>

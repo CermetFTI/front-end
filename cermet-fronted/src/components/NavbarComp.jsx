@@ -21,7 +21,7 @@ function NavbarComp() {
             {
                 (user===null)
                 ?
-                <Nav.Link onClick={()=>{history.push('/admin');}}>Admin Login</Nav.Link>
+                <button onClick={()=>{history.push('/admin');}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
                 :
                 <Row>
                     <Nav.Link onClick={()=>{history.push('/admin/dashboard');}}>Admin Dashboard</Nav.Link>

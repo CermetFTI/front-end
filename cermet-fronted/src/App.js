@@ -19,7 +19,7 @@ function App() {
       <div className='App'>
             <UserContext.Provider value={value}>
         <Navbar />
-        <div className='app-content'>
+        <div className='container app-content'>
           <Switch>
               <Route exact path='/'>
                 <Home />
