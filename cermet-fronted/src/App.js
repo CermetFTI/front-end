@@ -1,6 +1,7 @@
 import './App.css';
 import Home from './pages/Home';
 import Kompetisi from './pages/Kompetisi';
+import Beasiswa from './pages/Beasiswa';
 import Admin from './pages/Admin';
 import AdminDashboard from './pages/AdminDashboard'
 import Navbar from './components/NavbarComp'
@@ -25,6 +26,9 @@ function App() {
               </Route>
               <Route path='/kompetisi'>
                 <Kompetisi />
+              </Route>
+              <Route path='/beasiswa'>
+                <Beasiswa />
               </Route>
                 <Route exact path="/admin" component={Admin}/>
               <PrivateRoute exact path="/admin/dashboard" component={AdminDashboard}/>

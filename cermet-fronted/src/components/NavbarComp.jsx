@@ -16,6 +16,7 @@ function NavbarComp() {
             <Nav className="mr-auto">
             <Nav.Link onClick={()=>{history.push('/');}}>Home</Nav.Link>
             <Nav.Link onClick={()=>{history.push('/kompetisi');}}>Kompetisi</Nav.Link>
+            <Nav.Link onClick={()=>{history.push('/beasiswa');}}>Beasiswa</Nav.Link>
             </Nav>
             {
                 (user===null)

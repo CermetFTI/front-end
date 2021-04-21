@@ -1,34 +1,28 @@
 
 const data=[
     {
-        title: 'Title-1',
-        date: 'January 01',
-        image:'',
-        text:'Read more'
+        title: 'Battle of Article',
+        image:'https://i.ibb.co/Sr67847/image-1.png',
+        start: 'January 01',
+        end: 'January 01',
+        desc: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+        link:'https://www.google.com'
     },
     {
-        title: 'Title-2',
-        date: 'January 02',
-        image:'',
-        text:'Read more'
+        title: 'SejutaCita Youth Inovation Challenge',
+        image:'https://i.ibb.co/bzcq98w/image-3.png',
+        start: 'January 01',
+        end: 'January 01',
+        desc: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+        link:'https://www.google.com'
     },
     {
-        title: 'Title-3',
-        date: 'January 03',
-        image:'',
-        text:'Read more'
-    },
-    {
-        title: 'Title-2',
-        date: 'January 02',
-        image:'',
-        text:'Read more'
-    },
-    {
-        title: 'Title-3',
-        date: 'January 03',
-        image:'',
-        text:'Read more'
+        title: 'ICStar Hackathon',
+        image:'https://i.ibb.co/10NNVLz/image-2.png',
+        start: 'January 01',
+        end: 'January 01',
+        desc: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
+        link:'https://www.google.com'
     },
 ]
 
