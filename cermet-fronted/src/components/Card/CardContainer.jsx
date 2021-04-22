@@ -5,14 +5,14 @@ import './Card.css'
 
 function CardContainer() {
     return (
-        <div className='card-container'>    
+        <>    
             {cardData.map((data, idx)=>
             <Card 
               data={data}
               key={idx}
             />
             )}
-        </div>
+        </>
     )
 }
 

@@ -4,22 +4,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Card({data}) {
     return (
-        <div className='card-item'>
-            <div className="card-image">
+        <div className='card-post'>
+            <div className="card-post__img">
                 <img src={data.image} alt=""/>
             </div>
 
-            <div className="card-content">
-                <div className="content-date">
-                    <span className='start-date'>{data.start}</span>
-                    <span className='end-date'>{data.end}</span>
+            <div className="card-post__info">
+                <div className="card-post__date">
+                    <span className='start-date'>From {data.start}</span>
+                    <span className='end-date'> to {data.end}</span>
                 </div>
 
-                <h1 className='card-title'>{data.title}</h1>
-                <p className='card-text'>{data.desc}</p>
-                <button className='btn btn-primary'>
-                    <a href={data.link} className='card-link'>Read more</a>
-                </button>
+                <h1 className='card-post__title'>{data.title}</h1>
+                <p className='card-post__text'>{data.desc}</p>
+                <a href={data.link} className='card-post__cta'>Read more</a>
             </div>    
         </div>
     )
