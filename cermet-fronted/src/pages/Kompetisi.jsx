@@ -7,12 +7,13 @@ import data from '../components/data'
 
 function Kompetisi() {
     const [modal, setModal] = useState(true)
+    const [index, setIndex] = useState(0)
     return (
         <div className='list-page'>
             {/* data yang dipassing dibawah itu berupa json */}
-            <KompetisiModal data={data[1]}/>
+            <KompetisiModal data={data[index]} state={modal} fungsi={setModal}/>
             <h1>Kompetisi</h1>
-            <TimelineContainer />
+            <TimelineContainer setModal={setModal} setIndex={setIndex}/>
         </div>
     )
 }

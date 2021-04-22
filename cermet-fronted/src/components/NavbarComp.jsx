@@ -14,9 +14,9 @@ function NavbarComp() {
         <Navbar bg="white" variant="white" style={{backgroundColor:"transparent"}}>
             <Navbar.Brand onClick={()=>{history.push('/');}}>Cermet</Navbar.Brand>
             <Nav className="mr-auto">
-            <Nav.Link onClick={()=>{history.push('/');}}>Home</Nav.Link>
+            {/* <Nav.Link onClick={()=>{history.push('/');}}>Home</Nav.Link>
             <Nav.Link onClick={()=>{history.push('/kompetisi');}}>Kompetisi</Nav.Link>
-            <Nav.Link onClick={()=>{history.push('/beasiswa');}}>Beasiswa</Nav.Link>
+            <Nav.Link onClick={()=>{history.push('/beasiswa');}}>Beasiswa</Nav.Link> */}
             </Nav>
             {
                 (user===null)

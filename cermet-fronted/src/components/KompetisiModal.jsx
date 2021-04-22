@@ -7,16 +7,15 @@ import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 
 Modal.setAppElement('#root')
 
-const KompetisiModal = ({data}) => {
-    const [modal, setModal] = useState(true)
+const KompetisiModal = ({data,state,fungsi}) => {
     return (
-        <Modal isOpen={modal} onRequestClose={()=>setModal(false)}>
+        <Modal isOpen={state} onRequestClose={()=>fungsi(false)}>
             <Container style={{fontSize:'1rem'}} className="justify-content-md-center">
-                <h2 className="d-flex justify-content-center">{data.title}</h2>
-                <FontAwesomeIcon onClick={()=>setModal(false)} style={{cursor:"pointer",position:"absolute",right:"0px",top:"0px",margin:"1rem"}} icon={faTimesCircle} size='2x'/>
+                <h2 className="d-flex justify-content-center">judul</h2>
+                <FontAwesomeIcon onClick={()=>fungsi(false)} style={{cursor:"pointer",position:"absolute",right:"0px",top:"0px",margin:"1rem"}} icon={faTimesCircle} size='2x'/>
                 <Tabs defaultActiveKey={Object.keys(data)[0]}>
                     {Object.keys(data).map((key,i)=>
-                    ((key!=='judul') && <Tab eventKey={key} title={key}>
+                    ((key!=='judul') && (data[key]) && <Tab eventKey={key} title={key}>
                         {data[key]}    
                     </Tab>)
                     )}
