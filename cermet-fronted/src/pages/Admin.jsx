@@ -20,7 +20,7 @@ const Admin = () => {
         }
     }
     return (
-        <Container className="m-3">
+        <Container className="m-3" style={{height:"87vh"}}>
             <br/>
             <Card className="p-4" style={{maxWidth:"700px",margin:"0 auto"}}>
                 <h3 className="d-flex justify-content-md-center">Admin login panel</h3>

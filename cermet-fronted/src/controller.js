@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import axios from 'axios';
 
 const BACKEND_URL = "localhost:5000"
 
@@ -26,6 +27,9 @@ export const postData = async (data) => {
          const result = await Axios({
                  method: "POST",
                  data,    
+                 headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
                  withCredentials: true,
                  url: `http://${BACKEND_URL}/event`,
                  })
@@ -40,6 +44,9 @@ export const updateData = async (data,id) => {
          const result = await Axios({
                  method: "PUT",
                  data,    
+                 headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
                  withCredentials: true,
                  url: `http://${BACKEND_URL}/event/${id}`,
                  })
@@ -68,6 +75,19 @@ export const getData = async () =>{
             method: "GET",
             withCredentials: true,
             url: `http://${BACKEND_URL}/event`,
+        })
+        return result
+    } catch(err) {
+        return err
+    }
+}
+
+export const getDataPublic = async () =>{
+    try {
+        const result = await Axios({
+            method: "GET",
+            withCredentials: true,
+            url: `http://${BACKEND_URL}/event/some`,
         })
         return result
     } catch(err) {

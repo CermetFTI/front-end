@@ -1,9 +1,8 @@
 import React from 'react'
 import Card from './Card'
-import cardData from '../data'
 import './Card.css'
 
-function CardContainer() {
+function CardContainer({cardData}) {
     return (
         <>    
             {cardData.map((data, idx)=>

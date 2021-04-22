@@ -101,6 +101,10 @@
 
 
   @media screen and (max-width: 1068px) {
+    :root{
+      font-size: 0.9rem;
+    }
+    
     .card-post{
         max-width: 80rem;
     }
@@ -113,6 +117,9 @@
 
 
 @media screen and (max-width: 868px) {
+  :root{
+    font-size: 0.8rem;
+  }
     .card-post{
         padding: 2.5rem;
         flex-direction: column;
@@ -120,6 +127,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  :root{
+    font-size: 0.7rem;
+  }
   .card-post{
       padding: 2.5rem;
       flex-direction: column;
@@ -130,5 +140,10 @@
       max-width: 100%;
       transform: translate(0, 0);
       margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  :root{
+    font-size: 0.6rem;
   }
 }

@@ -11,19 +11,35 @@ const AdminForm = () => {
     const [tanggalbuka, settanggalbuka] = useState("")
     const [tanggaltutup, settanggaltutup] = useState("")
     const [id,setid] = useState("")
+    const [poster,setposter] = useState('')
 
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        const parsing = ({judul,deskripsi,event,link,tanggalbuka,tanggaltutup}) => {
-            return {
-                kategori:event,
-                deskripsi,
-                link,
-                tanggal_buka:tanggalbuka,
-                tanggal_tutup:tanggaltutup,
-                judul
+        const parsing = ({poster,judul,deskripsi,event,link,tanggalbuka,tanggaltutup}) => {
+            var formData = new FormData();
+            if(event){
+                formData.append("kategori",event);
             }
+            if(deskripsi){
+                formData.append("deskripsi",deskripsi);
+            }
+            if(link){
+                formData.append('link',link)
+            }
+            if(tanggalbuka){
+                formData.append("tanggal_buka",tanggalbuka)
+            }
+            if(tanggaltutup){
+                formData.append('tanggal_tutup',tanggaltutup)
+            }
+            if(judul){
+                formData.append('judul',judul)
+            }
+            if(poster){
+                formData.append('poster',poster)
+            }
+            return formData
         }
         const checknull = (data) => {
             let result = {}
@@ -35,15 +51,13 @@ const AdminForm = () => {
                 })
             return result
         }
-        const data = {id,judul,deskripsi,event,link,tanggalbuka,tanggaltutup}
-        
-        const final = parsing(checknull(data))
+        const data = {poster,judul,deskripsi,event,link,tanggalbuka,tanggaltutup}
+        const final = parsing(checknull({...data}))
         let result;
         if (perintah === "Create"){
             result = await postData(final)
         } else if(perintah==="Update") {
-            console.log(final)
-            result = await updateData({...final},id)
+            result = await updateData(parsing(checknull({...data})),id)
         } else if(perintah==="Delete") {
             result = await deleteData(id)
         }
@@ -69,15 +83,15 @@ const AdminForm = () => {
                 }
                 {
                     (perintah !== "Delete") && <>
-                <Form.Group controlId="formBasicText">
+                <Form.Group controlId="12">
                     <Form.Label>Judul</Form.Label>
                     <Form.Control onChange={(e)=>setjudul(e.target.value)} type="text" placeholder="Judul" />
                 </Form.Group>
-                <Form.Group controlId="formBasicTextarea">
+                <Form.Group controlId="22">
                     <Form.Label>Deskripsi</Form.Label>
                     <Form.Control onChange={(e)=>setdeskripsi(e.target.value)} as="textarea" rows={2} />
                 </Form.Group>
-                <Form.Group controlId="formBasicText">
+                <Form.Group controlId="32">
                     <Form.Label>Event</Form.Label>
                     <Form.Control onChange={(e)=>setevent(e.target.value)} as="select">
                         <option>Lomba</option>
@@ -85,15 +99,18 @@ const AdminForm = () => {
                         <option>Beasiswa</option>
                     </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="formBasicText">
-                    <Form.Label>Link poster</Form.Label>
+                <Form.Group controlId="42">
+                    <Form.Label>Link kegiatan</Form.Label>
                     <Form.Control onChange={(e)=>setlink(e.target.value)} type="text" placeholder="Link" />
                 </Form.Group>
-                <Form.Group controlId="formBasicText">
+                <Form.Group>
+                    <Form.File id="52" label="Poster" onChange={(e)=>setposter(e.target.files[0])}/>
+                </Form.Group>
+                <Form.Group controlId="62">
                     <Form.Label>Tanggal Buka</Form.Label>
                     <Form.Control onChange={(e)=>settanggalbuka(e.target.value)} type="text" placeholder="YYYY-MM-DD" />
                 </Form.Group>
-                <Form.Group controlId="formBasicText">
+                <Form.Group controlId="72">
                     <Form.Label>Tanggal Tutup</Form.Label>
                     <Form.Control onChange={(e)=>settanggaltutup(e.target.value)} type="text" placeholder="YYYY-MM-DD" />
                 </Form.Group></>}
