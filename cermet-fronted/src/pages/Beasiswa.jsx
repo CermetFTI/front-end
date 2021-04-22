@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import CardContainer from '../components/Card/CardContainer'
-import data from '../components/data'
 import SearchEvent from '../components/SearchEvent'
 import {getDataPublic} from '../controller'
 
@@ -25,6 +24,7 @@ function Beasiswa() {
     useEffect(() => {
         const data = initial.filter(x=>x.judul.toLowerCase().includes(search) && (kategori === "All" ? true : (x.kategori == kategori)))
         setCardData(data)
+        console.log(cardData)
     }, [search,kategori])
     
     return (

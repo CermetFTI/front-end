@@ -34,11 +34,9 @@ const Admin = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password"/>
                     </Form.Group>
-                    <Button variant="primary" type="submit">Test Login API</Button>{' '}
+                    <Button variant="primary" type="submit">Login</Button>{' '}
                 </Form>
             </Card>
-             {/* <Button variant="primary" onClick={getData}>Test get API</Button>{' '}
-             <Button variant="primary" onClick={async ()=>console.log(user === await getUser())}>Test aja</Button>{' '} */}
         </Container>
     )
 }

@@ -15,6 +15,7 @@ const AdminDashboard = () => {
     const [dataform, setdataform] = useState({})
     const [search, setSearch] = useState("")
     const [initial,setInitial] = useState([])
+    const [update,setUpdate] = useState(true)
     const changeSearch = (data) => {
         setSearch(data)
     }
@@ -30,7 +31,7 @@ const AdminDashboard = () => {
         }
         setData(result)
         setInitial(result)
-    }, [])
+    }, [update])
     useEffect(()=>{
         const filteredData = []
         const result = initial
@@ -67,7 +68,7 @@ const AdminDashboard = () => {
             <Col xs={4} className="p-3">
                 <h1>Admin Panel</h1>
                 <hr/>
-                <AdminForm data={dataform}/>
+                <AdminForm update={update} setUpdate={setUpdate}/>
             </Col>
             }
                 <Col style={{overflowY:"auto", height:"136vh"}}>

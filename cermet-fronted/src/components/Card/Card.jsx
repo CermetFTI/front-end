@@ -1,6 +1,8 @@
 import React from 'react'
 import './Card.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+import { faWindows } from '@fortawesome/free-brands-svg-icons';
 
 function Card({data}) {
     return (
@@ -15,7 +17,7 @@ function Card({data}) {
                 </div>
                 <h1 className='card-post__title'>{data.judul}</h1>
                 <p className='card-post__text'>{data.deskripsi}</p>
-                <a href={data.link} className='card-post__cta'>Read more</a>
+                <a className='card-post__cta' onClick={()=>window.location.href=`${data.link}`}>Read more</a>
             </div>    
         </div>
     )

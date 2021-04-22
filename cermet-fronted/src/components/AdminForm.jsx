@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Form,Button} from 'react-bootstrap'
 import {postData,updateData,deleteData} from '../controller'
 
-const AdminForm = () => {
+const AdminForm = ({setUpdate,update}) => {
     const [perintah, setperintah] = useState("Create")
     const [judul, setjudul] = useState("")
     const [deskripsi, setdeskripsi] = useState("")
@@ -62,6 +62,7 @@ const AdminForm = () => {
             result = await deleteData(id)
         }
         alert(result);
+        setUpdate(!update)
     }
     return (
         <>

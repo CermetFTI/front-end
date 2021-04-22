@@ -19,7 +19,7 @@ function App() {
       <div className='App'>
             <UserContext.Provider value={value}>
         <Navbar />
-        <div className='container app-content' style={{minHeight:"90vh",maxWidth:"100vw",overflow:"hidden"}}>
+        <div className='container app-content' style={{minHeight:"90vh",overflow:"hidden", width:"100vw"}}>
           <Switch>
               <Route exact path='/'>
                 <Home />
