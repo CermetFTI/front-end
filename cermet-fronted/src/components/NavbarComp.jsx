@@ -10,8 +10,8 @@ function NavbarComp() {
     const history = useHistory();
     const {user, setUser} = useContext(UserContext);
     return (
-        <div className='navbar-class'>
-        <Navbar bg="light" variant="light">
+        <div className='navbar-class ' style={{position:"relative",zIndex:"100"}}>
+        <Navbar bg="white" variant="white" style={{backgroundColor:"transparent"}}>
             <Navbar.Brand onClick={()=>{history.push('/');}}>Cermet</Navbar.Brand>
             <Nav className="mr-auto">
             <Nav.Link onClick={()=>{history.push('/');}}>Home</Nav.Link>

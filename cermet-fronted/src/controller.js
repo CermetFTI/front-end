@@ -1,5 +1,6 @@
-import axios from 'axios';
 import Axios from 'axios';
+
+const BACKEND_URL = "localhost:5000"
 
 export const login = async (setUser, username, password, history) => {
    try { 
@@ -10,7 +11,7 @@ export const login = async (setUser, username, password, history) => {
                     password:password
                 },    
                 withCredentials: true,
-                url: "http://localhost:5000/auth/login",
+                url: `http://${BACKEND_URL}/auth/login`,
                 })
         setUser(result.data.username)
         return true;
@@ -26,7 +27,7 @@ export const postData = async (data) => {
                  method: "POST",
                  data,    
                  withCredentials: true,
-                 url: "http://localhost:5000/event",
+                 url: `http://${BACKEND_URL}/event`,
                  })
          return result;
      } catch(e) {
@@ -40,7 +41,7 @@ export const updateData = async (data,id) => {
                  method: "PUT",
                  data,    
                  withCredentials: true,
-                 url: `http://localhost:5000/event/${id}`,
+                 url: `http://${BACKEND_URL}/event/${id}`,
                  })
          return result;
      } catch(e) {
@@ -53,7 +54,7 @@ export const deleteData = async (id) => {
          const result = await Axios({
                  method: "DELETE",
                  withCredentials: true,
-                 url: `http://localhost:5000/event/${id}`,
+                 url: `http://${BACKEND_URL}/event/${id}`,
                  })
          return result;
      } catch(e) {
@@ -66,7 +67,7 @@ export const getData = async () =>{
         const result = await Axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:5000/event",
+            url: `http://${BACKEND_URL}/event`,
         })
         return result
     } catch(err) {
@@ -79,7 +80,7 @@ export const getUser = async () => {
         const result = await Axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:5000/auth",
+            url: `http://${BACKEND_URL}/auth`,
           })
         return result.data.username.name
     } catch(e) {
@@ -91,7 +92,7 @@ export const logout = () => {
     Axios({
         method: "GET",
         withCredentials: true,
-        url: "http://localhost:5000/auth/logout",
+        url: `http://${BACKEND_URL}/auth/logout`,
       })
       .then((res) => console.log(res.status))
       .catch(e=>console.log(e))
