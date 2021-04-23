@@ -16,8 +16,8 @@ function Card({data}) {
                     <span className='end-date'> to {data.tanggal_tutup}</span>
                 </div>
                 <h1 className='card-post__title'>{data.judul}</h1>
-                <p className='card-post__text'>{data.deskripsi}</p>
-                <a className='card-post__cta' onClick={()=>window.location.href=`${data.link}`}>Read more</a>
+                <p className='card-post__text' style={{fontSize:"1rem"}}>{data.deskripsi}</p>
+                <a className='card-post__cta' style={{cursor:"pointer"}} onClick={()=>window.location.href=`${data.link}`}>Read more</a>
             </div>    
         </div>
     )

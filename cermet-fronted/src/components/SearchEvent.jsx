@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dropdown, DropdownButton, FormControl, InputGroup } from 'react-bootstrap'
 
-const SearchEvent = ({filterData,filterKategori}) => {
+const SearchEvent = ({filterData,filterKategori,display}) => {
     return (
                 <InputGroup style={{maxWidth:"600px"}} className="shadow mb-5 bg-white rounded">
                     <FormControl
@@ -13,7 +13,7 @@ const SearchEvent = ({filterData,filterKategori}) => {
                     <DropdownButton
                     as={InputGroup.Append}
                     variant="outline-primary"
-                    title="Event"
+                    title={`${display}`}
                     id="input-group-dropdown-2"
                     >
                     <Dropdown.Item onClick={()=>filterKategori("All")}>Semua</Dropdown.Item>

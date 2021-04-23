@@ -9,6 +9,7 @@ function Beasiswa() {
     const [search, setSearch] = useState("")
     const [kategori, setKategori] = useState("All")
     const [initial, setInitial] = useState([])
+    const [display, setDisplay] = useState("Event")
     useEffect(() => {
             getDataPublic()
                 .then(
@@ -25,7 +26,7 @@ function Beasiswa() {
     useEffect(() => {
         const data = initial.filter(x=>x.judul.toLowerCase().includes(search) && (kategori === "All" ? true : (x.kategori === kategori)))
         setCardData(data)
-        console.log(cardData)
+        setDisplay((kategori==="All" ? "Semua" : kategori) )
     }, [search,kategori])
     
     return (
@@ -36,7 +37,7 @@ function Beasiswa() {
         transition={{duration:1}}
         className='d-flex flex-column justify-content-center list-page'>
             <br/>
-            <SearchEvent filterData={setSearch} filterKategori={setKategori}/>
+            <SearchEvent display={display} filterData={setSearch} filterKategori={setKategori}/>
             <CardContainer cardData={cardData}/>
         </motion.div>
     )
