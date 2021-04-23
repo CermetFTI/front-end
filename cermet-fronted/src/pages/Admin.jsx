@@ -4,6 +4,7 @@ import {login} from '../controller';
 import {useHistory} from 'react-router-dom'
 import { UserContext } from '../UserContext';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { motion } from 'framer-motion';
 
 const Admin = () => {
     const history = useHistory()
@@ -20,24 +21,31 @@ const Admin = () => {
         }
     }
     return (
-        <Container className="m-3" style={{height:"87vh"}}>
-            <br/>
-            <Card className="p-4" style={{maxWidth:"700px",margin:"0 auto"}}>
-                <h3 className="d-flex justify-content-md-center">Admin login panel</h3>
+        <motion.div
+        initial={{opacity:0,scale:0.75}}
+        animate={{opacity:1,scale:1}}
+        exit={{opacity:0,scale:0.75}}
+        transition={{duration:1}}
+        >
+            <Container className="m-3" style={{height:"87vh"}}>
                 <br/>
-                <Form onSubmit={logging_in}>
-                    <Form.Group>
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="Username"/>
-                    </Form.Group>
-                    <Form.Group controlId="formPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password"/>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">Login</Button>{' '}
-                </Form>
-            </Card>
-        </Container>
+                <Card className="p-4" style={{maxWidth:"700px",margin:"0 auto"}}>
+                    <h3 className="d-flex justify-content-md-center">Admin login panel</h3>
+                    <br/>
+                    <Form onSubmit={logging_in}>
+                        <Form.Group>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="Username"/>
+                        </Form.Group>
+                        <Form.Group controlId="formPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password"/>
+                        </Form.Group>
+                        <Button variant="primary" type="submit">Login</Button>{' '}
+                    </Form>
+                </Card>
+            </Container>
+        </motion.div>
     )
 }
 

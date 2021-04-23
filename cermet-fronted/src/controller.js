@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import axios from 'axios';
 
-const BACKEND_URL = "localhost:5000"
+const BACKEND_URL = "192.53.174.4:5000"
 
 export const login = async (setUser, username, password, history) => {
    try { 

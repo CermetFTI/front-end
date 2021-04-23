@@ -12,16 +12,13 @@ function NavbarComp() {
     return (
         <div className='navbar-class navbar-shadow' style={{position:"relative",zIndex:"100"}}>
         <Navbar bg="white" variant="white" style={{backgroundColor:"transparent"}}>
-            <Navbar.Brand onClick={()=>{history.push('/');}}>Cermet</Navbar.Brand>
+            <Navbar.Brand style={{cursor:"pointer"}} onClick={()=>{history.push('/');}}>Cermet</Navbar.Brand>
             <Nav className="mr-auto">
-            {/* <Nav.Link onClick={()=>{history.push('/');}}>Home</Nav.Link>
-            <Nav.Link onClick={()=>{history.push('/kompetisi');}}>Kompetisi</Nav.Link>
-            <Nav.Link onClick={()=>{history.push('/beasiswa');}}>Beasiswa</Nav.Link> */}
             </Nav>
             {
                 (user===null)
                 ?
-                <button onClick={()=>{history.push('/admin');}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                <button onClick={()=>{history.push('/admin');}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Admin</button>
                 :
                 <Row>
                     <Nav.Link onClick={()=>{history.push('/admin/dashboard');}}>Admin Dashboard</Nav.Link>

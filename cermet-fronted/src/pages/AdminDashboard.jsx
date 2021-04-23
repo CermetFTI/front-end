@@ -106,7 +106,7 @@ const AdminDashboard = () => {
                         </>
                         :
                     <><SearchAdmin data={search} fungsi={changeSearch} fungsiDropdown={setKategori}/>
-                    <Accordion className="mt-3" defaultActiveKey="0">
+                    <Accordion className="mt-3" defaultActiveKey="41324">
                         {data.map((x,index)=><Card>
                             <Card.Header>
                             <Accordion.Toggle as={Button} variant="link" eventKey={index.toString()}>
